@@ -1,10 +1,10 @@
-# A1 Task One
+# A2
 
-Book lending program
+Mancala Game
 
 ## Description
 
-In this task, we've implemented a `Book` class that simulates a book lending system. The `Book` class represents the characteristics of a book in a lending library, including its title, author, and status (borrowed or not). Users can interact with books by borrowing and returning them.
+This program is a text-based implementation of the classic board game Mancala. Mancala is a two-player strategy game that involves moving stones around a board, aiming to capture the most stones in your store. In this version of Mancala, players take turns distributing stones from their pits across the board, following specific rules outlined in the official game rules. The game ends when a player accumulates the most stones in their store.
 
 ## Getting Started
 
@@ -16,10 +16,7 @@ In this task, we've implemented a `Book` class that simulates a book lending sys
 
 ### Executing program
 
-* Change directory into TaskOne
-```
-cd TaskOne
-```
+
 * Run gradle build
 ```
 gradle build
@@ -30,36 +27,29 @@ gradle echo
 ```
 * Enter the the command of the last line gradle echo outputs
 ```
-java -cp build/classes/java/main book.Runner
+java -cp build/classes/java/main ui.TextUI
 ```
 * Expected Output:
 ```
-TEST CASE 1: Test Book methods
-Book Name: Speak Now: Taylor Swift
-Book Borrowed: Speak Now
-Give back Book: true
-Book Borrowed: Speak Now
+Mancala Game
+Mancala Game
+Current Player: Player 1
+Winner: None
+         12   11   10    9    8   7
+   |---|----|----|----|----|----|----|----|
+       |  4 |  4 |  4 |  4 |  4 |  4 |
+P2   0 |-----------------------------|  0    P1
+       |  4 |  4 |  4 |  4 |  4 |  4 |
+   |---|----|----|----|----|----|----|----|
+         1    2    3    4    5    6
 
-TEST CASE 2: Borrow already borrowed book
-Book Name: Utopia: Travis Scott
-Book Borrowed: 
-
-TEST CASE 3: Give back already available book
-Book Name: Coast: Hailee Steinfeld
-Give back Book: false
-
-TEST CASE 4: Borrow book with no title or author
-Book Name: null: null
-Book Borrowed: null
-
-TEST CASE 5: Show title and author seperately
-Book Name: Speak Now
-Book Author: Taylor Swift
+Player 1's turn.
+Enter the pit number to move from (1-6 for Player 1, 7-12 for Player 2): 
 ```
 
 ## Limitations
 
-* No user input because the instructions say to hard code book characteristics in the runner class
+* The player's stones get distributed in the opposite store
 
 ## Author Information
 
@@ -71,10 +61,8 @@ Book Author: Taylor Swift
 
 ## Development History
 
-Keep a log of what things you accomplish when.  You can use git's tagging feature to tag the versions or you can reference commits.
 
-* 0.1
-    * Initial Release
+My version of the mancala game accounts for edge cases and implements more complex features like distributing the stones correctly. The AI version struggles to implement these complex rules and handle errors. 
 
 ## Acknowledgments
 
