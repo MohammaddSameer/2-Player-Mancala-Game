@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+    id 'jacoco'
+}
+
+jacoco {
+    toolVersion = '0.8.8'
+    reportsDirectory = file("$buildDir/reports/jacoco")
+}
+
+repositories {
+    mavenCentral()
+}
+
+checkstyle {
+    ignoreFailures = true // Change to false to make checkstyle fail the build on errors
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'aiSolution.src.java.main.Main' // Adjust with your actual main class
+    }
+    archiveBaseName = 'MancalaGame' // Adjust the jar name as needed
+}
+
+task echo {
+    doFirst {
+        println "To run the program from jar:\njava -jar build/libs/MancalaGame.jar"
+        println "To run the program from class files:\njava -cp build/classes/java/main aiSolution.src.java.main.Main"
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    // Add your project dependencies here if needed
+}
