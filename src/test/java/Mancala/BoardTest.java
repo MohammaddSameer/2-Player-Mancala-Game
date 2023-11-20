@@ -144,6 +144,13 @@ public class BoardTest {
         assertEquals(4, totalStones); // Expected total stones distributed from the starting point
     }
 
+        public void testCaptureStonesTest() throws PitNotFoundException {
+            assertEquals(0, board.captureStones(5));
+            board.initializeBoard();
+            assertEquals(8, board.captureStones(5));
+            assertThrows(PitNotFoundException.class, () -> board.captureStones(0));
+            assertThrows(PitNotFoundException.class, () -> board.captureStones(0));
+        }
 
 
 }
