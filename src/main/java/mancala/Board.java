@@ -75,11 +75,17 @@ public class Board {
 
     public int moveStones(int startPit, Player player) throws InvalidMoveException {
 
+
+        if (startPit <= 0 || startPit > 12) {
+            throw new InvalidMoveException();
+        }
+        
         if(getPits().get(startPit - 1).getStoneCount() == 0){
 
             throw new InvalidMoveException();
 
         }
+
 
         int stonesMoved = 0;
         int capStones = 0;

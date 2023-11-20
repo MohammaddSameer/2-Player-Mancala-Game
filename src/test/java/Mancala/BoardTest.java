@@ -119,6 +119,31 @@ public class BoardTest {
         
     }
 
+    @Test
+    public void testRegisterPlayers() {
+
+        // Verify association of players with stores
+        assertEquals(player1, board.getStores().get(0).getOwner()); // Verify player1 is associated with store 1
+        assertEquals(player2, board.getStores().get(1).getOwner()); // Verify player2 is associated with store 2
+
+        // Verify association of stores with players
+        assertEquals(board.getStores().get(0), player1.getStore()); // Verify store 1 is associated with player1
+        assertEquals(board.getStores().get(1), player2.getStore()); // Verify store 2 is associated with player2
+    }
+
+
+    @Test
+    public void testDistributeStones() throws PitNotFoundException {
+        int startingPoint = 1;
+        int totalStones = board.distributeStones(startingPoint);
+
+        assertEquals(0, board.getNumStones(1)); // Pit 1 should have 0 stones after distribution
+        assertEquals(5, board.getNumStones(3)); // Pit 2 should have 5 stones after distribution
+        assertEquals(5, board.getNumStones(4)); // Pit 3 should have 5 stones after distribution
+
+        assertEquals(4, totalStones); // Expected total stones distributed from the starting point
+    }
+
 
 
 }
